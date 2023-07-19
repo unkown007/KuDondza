@@ -2,11 +2,8 @@ const COLORS = {
     white: "white",
     blue: "#124689",
     green: "#0ACB29",
-  
-    red: "#D51313",
-    
+    red: "#D51313", 
     grey: "#D9D9D9"
-
   };
 
   const FONT = {
