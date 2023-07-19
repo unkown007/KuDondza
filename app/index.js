@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
-import BlueBtn from "../components/bluebtn/BlueBtn";
 
-const Home = () => {
-    return (
-        <View>
-            <BlueBtn text= "Propor"/>
-        </View>
+
+const Home= () => {
+  return (
+    <View>
+        <Text>Hello</Text>
+    </View>
     )
-}
+};
 
 export default Home;
