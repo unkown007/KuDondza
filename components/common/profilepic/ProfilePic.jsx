@@ -1,7 +1,6 @@
-
-import react from "react";
+import React from "react";
 import { View, Image, TouchableOpacity } from "react-native";
-import imageContainer from "./ProfilePic.style";
+import imageContainer from './ProfilePic.style'
 
 const ProfilePic = ({width, height}) => {
     return(
@@ -15,5 +14,6 @@ const ProfilePic = ({width, height}) => {
         </View>
     );
 };
+
 
 export default ProfilePic

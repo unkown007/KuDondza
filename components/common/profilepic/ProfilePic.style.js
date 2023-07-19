@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 const imageContainer = StyleSheet.create({
+
     dimensions: (widthdim, heightdim) => ({
         width: widthdim,
         height: heightdim,
@@ -10,3 +11,4 @@ const imageContainer = StyleSheet.create({
 )
 
 export default imageContainer
+
