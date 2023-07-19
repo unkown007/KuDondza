@@ -6,6 +6,7 @@ import {
     HeaderBtn, HeaderTitle
 } from "../components";
 
+
 const Home = () => {
     const router = useRouter();
 
@@ -22,6 +23,6 @@ const Home = () => {
             />
         </SafeAreaView>
     )
-}
+};
 
 export default Home;
