@@ -1,3 +1,12 @@
+
+import { View, Text } from "react-native";
+import Footer from "../components/common/footer/footerComponent/Footer";
+import Input from "../components/common/input/Input";
+import { useState } from "react";
+import inputStyles from "../components/common/input/Input.Style";
+
+       
+
 import { useState } from "react";
 import { View, ScrollView, SafeAreaView, Text } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
@@ -6,11 +15,13 @@ import {
     HeaderBtn, InputField, Button
 } from "../components";
 
+
 const Home = () => {
     const router = useRouter();
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+       
             <Stack.Screen
                 options={{
                     headerStyle: { backgroundColor: COLORS.white },
@@ -60,7 +71,8 @@ const Home = () => {
                 </View>
             </ScrollView>
         </SafeAreaView>
+
     )
-}
+};
 
 export default Home;
