@@ -3,7 +3,8 @@ const COLORS = {
     blue: "#124689",
     green: "#0ACB29",
     red: "#D51313", 
-    grey: "#D9D9D9"
+    grey: "#D9D9D9",
+    borderGray:"#C5C0C0"
   };
 
   const FONT = {
