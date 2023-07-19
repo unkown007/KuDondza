@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
+import BlueBtn from "../components/bluebtn/BlueBtn";
 
 const Home = () => {
     return (
         <View>
-            <Text>Home</Text>
+            <BlueBtn text= "Propor"/>
         </View>
     )
 }
