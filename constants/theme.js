@@ -7,9 +7,6 @@ const COLORS = {
     borderGray:"#C5C0C0"
   };
 
-  const FONT = {
-    regular: "Segoe UI",
-  };
 
   const SIZES = {
     xSmall: 12,
@@ -20,4 +17,4 @@ const COLORS = {
     xxlarge: 26
   };
 
-  export{COLORS, FONT, SIZES}
+  export {COLORS, SIZES}
