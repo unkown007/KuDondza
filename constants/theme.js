@@ -22,4 +22,4 @@ const COLORS = {
     xxlarge: 26
   };
 
-  export{COLORS, FONT, SIZES}
+  export { COLORS, FONT, SIZES };
