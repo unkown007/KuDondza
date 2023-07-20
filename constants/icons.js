@@ -10,7 +10,9 @@ import user from "../assets/icons/R.png";
 import doc from "../assets/icons/doc.png";
 import photo from "../assets/icons/photo.png";
 import plus from "../assets/icons/plus.png";
-import minus from "../assets/icons/minus.png";
+import minus from "../assets/icons/minus.png";import Options from '../assets/icons/icons8-three-dots-24.png'
+import Back from '../assets/icons/icons8-back-32.png'
+
 
 export {
     plus,

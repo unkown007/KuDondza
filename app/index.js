@@ -139,28 +139,22 @@ const Home = ({navigation}) => {
                 options={{
                     headerStyle: { backgroundColor: COLORS.white },
                     headerShadowVisible: false,
+                    headerBackVisible: true,
                     headerLeft: () => (
-                        <HeaderBtn iconUrl={icons.back} dimension="60%"/>
+                            <HeaderBtn iconUrl = {Back} dimension ="60%" handlePress={null}/>
                     ),
-                    headerTitle: "Registo",
+                    headerTitle: "Proposta",
                     headerTitleAlign: "center",
                     headerTintColor: COLORS.blue
                 }}
             />
             <ScrollView showsVerticalScrollIndicator={false}
-                contentContainerStyle={{
+                    contentContainerStyle={{
                     paddingTop: 5,
                     paddingHorizontal: 10
-                }}
-            >
-                <View
-                    style={{
-                        flex: 1,
-                        padding: SIZES.medium,
-                        backgroundColor: COLORS.white
                     }}>
 
-                </View>
+                <View>
                 <Text style={{fontSize: 18, fontWeight:'bold'}}>Dados Pessoais</Text>
                 <View style={{marginVertical: 20}}>
                     <InputField
@@ -276,10 +270,10 @@ const Home = ({navigation}) => {
                         Ja tem uma conta? Login
                     </Text>
                 </View>
+                </View>
             </ScrollView>
         </SafeAreaView>
-
     )
-};
+}
 
 export default Home;
