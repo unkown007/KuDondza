@@ -1,10 +1,13 @@
 const COLORS = {
     white: "white",
     blue: "#124689",
+    darkBlue: '#7978B5',
     green: "#0ACB29",
-    red: "#D51313", 
-    grey: "#D9D9D9",
-    borderGray:"#C5C0C0"
+  
+    red: "#D51313",
+    
+    grey: "#D9D9D9"
+
   };
 
 
