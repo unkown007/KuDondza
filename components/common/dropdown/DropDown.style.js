@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
     inputContainer: {
-        height: 40,
+        height: 55,
         backgroundColor: COLORS.white,
         flexDirection: 'row',
         paddingHorizontal: 15,

@@ -41,7 +41,7 @@ const InputField = ({
                     onBlur={() => {
                         setIsFocused(false);
                     }}
-                    style={{color: COLORS.grey, flex: 1}}
+                    style={{flex: 1}}
                     {...props}
                 />
                 {password && (

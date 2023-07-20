@@ -3,11 +3,9 @@ const COLORS = {
     blue: "#124689",
     darkBlue: '#7978B5',
     green: "#0ACB29",
-  
     red: "#D51313",
-    
-    grey: "#D9D9D9"
-
+    grey: "#D9D9D9",
+    bordergray: "#C5C0C0"
   };
 
 

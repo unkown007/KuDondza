@@ -1,10 +1,10 @@
 import { Image, TouchableOpacity } from "react-native";
 import styles from "./FooterIcon.style";
 
-const Icon=({source})=>{
+const Icon=({source, handleclick, dimension})=>{
     return(
-        <TouchableOpacity>
-            <Image source={source} style={styles.icon(30)}/>
+        <TouchableOpacity onPress={handleclick}>
+            <Image source={source} style={styles.icon(dimension)}/>
         </TouchableOpacity>
     )
 }

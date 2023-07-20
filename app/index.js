@@ -1,34 +1,140 @@
-/*import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import {COLORS} from '../constants/theme'
-import ProfilePic from "../components/common/profilepic/ProfilePic";
+import { useState } from "react";
+import { View, ScrollView, SafeAreaView, Text } from 'react-native';
+import { Stack, useRouter } from 'expo-router';
+import {COLORS, icons, images, SIZES } from '../constants'
+import { back } from "../constants/icons";
+import { HeaderBtn, InputField, Button} from "../components";
+import Login from "./Login";
+import PostDoubt from "./PostDoubt";
+import { 
+    HeaderBtn, InputField, Button, DropDown, DateTime, Loader
+} from "../components";
+import { Keyboard } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Home = () => {
-    return (
-        <View style={{ flex: 1, backgroundColor: COLORS.white }}>
-            <ProfilePic width = {50} height = {50}/>
-        </View>
-    )
+
+
+const Home = ({navigation}) => {
+
+    const router = useRouter();
+
+    const [inputs, setInputs] = useState({
+        nome: '',
+        apelido: '',
+        genero: '',
+        dataNascimento: '',
+        localizacao: '',
+        instituicao: '',
+        email: '',
+        telefone: '',
+        usuario: '',
+        password: '',
+        confpass: '',
+    })
+    const [errors, setErrors] = useState({})
+    const [loading, setLoading] = useState(false)
+    const validate = () => {
+        Keyboard.dismiss()
+        let valid = true
+        if (!inputs.name) {
+            handleError("Por favor insira o nome", "nome")
+        }
+
+        if (!inputs.apelido) {
+            handleError("Por favor insira apelido", "apelido")
+        }
+
+        if (!inputs.genero) {
+            handleError("Por favor insira o genero", "genero")
+        }
+
+        if (!inputs.dataNascimento) {
+            handleError("Por favor insira a data de nascimento", "dataNascimento")
+        }
+
+        if (!inputs.localizacao) {
+            handleError("Por favor insira a localizacao", "localizacao")
+        }
+
+        if (!inputs.instituicao) {
+            handleError("Por favor insira a instituicao", "instituicao")
+        }
+
+        if (!inputs.telefone) {
+            handleError("Por favor insira o contacto", "telefone")
+        }
+
+        if (!inputs.usuario) {
+            handleError("Por favor insira o nome do usuario", "usuario")
+        }
+
+        if (!inputs.password) {
+            handleError("Por favor insira a password", "password")
+        } else if (inputs.password.length < 8) {
+            handleError("Por favor insira no minimo 5 characteres", "password")
+        }
+
+        if (!inputs.confpass) {
+            handleError("Por favor insira a confirmacao da password", "confpass")
+        }
+
+        if (!inputs.email) {
+            handleError("Por favor insira o email", "email")
+            valid = false
+        } else if (!inputs.email.match(/\S+@\S+\.\S+/)) {
+            handleError("Por favor insira um email valid", "email")
+        }
+
+        if (valid) {
+            register();
+        }
     }
-export default Home*/
 
+    const register = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            try {
+                AsyncStorage.setItem('user', JSON.stringify(inputs))
+                navigation.navigate("LoginScreen")
+            } catch (error) {
+                Alert.alert("Error")
+            }
+        }, 3000)
+    }
 
-import React from "react";
-import { Stack } from "expo-router";
-import {SafeAreaView, View, Text, ScrollView, Alert} from "react-native";
-import {COLORS, SIZES} from '../constants/theme'
-import BlueBtn from '../components/common/bluebtn/BlueBtn';
-import ProfilePic from "../components/common/profilepic/ProfilePic";
-import HeaderBtn from '../components/common/header/headerbtn/HeaderbBtn'
-import image from '../assets/icons/R.png'
-import { Back, Options } from "../constants/icons";
-import Footer from '../components/common/footer/footerComponent/Footer'
-import { Button } from "../components";
+    const handleOnChange = (text, input) => {
+        setInputs((prevState) => ({...prevState, [input]: text}))
+    }
 
+    const handleError = (error, input) => {
+        setErrors(prevState => ({...prevState, [input]: error}))
+    }
 
-const Proposal = ({comments}) => {
-    return(
-        <SafeAreaView style = {{ flex: 1, backgroundColor: COLORS.white }}>
+    genero = [
+        {key:'1', value:"Masculino"},
+        {key:'2', value:"Femenino"},
+    ]
+    prov = [
+        {key:'1', value:"Maputo Cidade"},
+        {key:'2', value:"Maputo Província"},
+        {key:'3', value:"Gaza"},
+        {key:'4', value:"Inhambane"},
+        {key:'5', value:"Sofala"},
+        {key:'6', value:"Manica"},
+        {key:'7', value:"Tete"},
+        {key:'8', value:"Zambezia"},
+        {key:'9', value:"Nampula"},
+        {key:'10', value:"Cabo Delgado"},
+        {key:'11', value:"Niassa"},
+    ]
+
+    return (
+        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+
+             {/* <PostDoubt/> */}
+
+            <Loader visible={loading}/>
             <Stack.Screen
                 options={{
                     headerStyle: { backgroundColor: COLORS.white },
@@ -42,101 +148,131 @@ const Proposal = ({comments}) => {
                     headerTintColor: COLORS.blue
                 }}
             />
-            <Footer/>
-
-
-
-            <View>
-                <View 
-                    style = {{
-                        flexDirection: 'row', 
-                        padding :30, 
-                        paddingTop: 20,
-                        borderTopWidth: 1,
-                        borderTopColor: COLORS.grey,
-                        justifyContent: 'space-between' }}>
-                    <View style = {{flexDirection: 'row' }}>
-
-                        <View >
-                            <ProfilePic image = {image} width ={50} height ={50} />
-                        </View>
-                        <View style = {{padding :5, }}>
-                            <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> Nome_apelido</Text>
-                            <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 12 min</Text>
-                        </View>
-                    </View>
-                    <View>
-                        <HeaderBtn 
-                                style ={{paddingTop: 10, alignItems: "center", justifyContent: "space-between"}} 
-                                iconUrl = {Options} 
-                                dimension ="60%"/>
-                    </View>
-                
-                </View>
-                
-                <View style={{padding: 30, paddingTop: 1}}>
-                    <Text style = {{fontSize: SIZES.medium, paddingBottom:30}}>hdbffskfffffffffffffffffffffffffffffffffffffffffffffdj
-                    rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-                    rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-                    rrrrrrrrrrrrrrrrrrrrrrjjjjjjjjjjjjjjjjjjjjjj</Text>
-                    <Text style ={{fontSize: SIZES.medium, fontWeight:'bold'}}>Proposta: 500.00</Text>
-                </View>
-        
-            </View>
-        
-        
-            
             <ScrollView showsVerticalScrollIndicator={false}
                     contentContainerStyle={{
                     paddingTop: 5,
                     paddingHorizontal: 10
                     }}>
-                <View style = {{borderTopWidth: 1, borderTopColor: COLORS.grey, padding: 30, paddingTop:10}}>
-                    <View style= {{flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <View style = {{flexDirection: 'row'}}>
-                            <View style = {{top: 3}}>
-                                <ProfilePic image = {image} width ={20} height ={20} />
-                            </View>
-                            <View style = {{padding :5 }}>
-                                <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> Nome_apelido</Text>
-                            </View>
-                            <View style = {{top: 2}}>
-                                <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 12 min</Text>
-                            </View>
-                        </View>
-                        <View style ={{bottom: 7}} >
-                            <HeaderBtn 
-                                style ={{top: 8 }} 
-                                iconUrl = {Options} 
-                                dimension ="60%"/>
-                        </View>
-                    </View>
-                    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <View style={{paddingLeft: 25}}>
-                            <Text> Proposta: 500.00 </Text>
-                        </View>
-                        <BlueBtn
-                            width= {80}     
-                            height = {20}
-                            text = 'Aceitar'
-                            onPress = {()=> 
-                                Alert.alert(
-                                    "Aceitar Proposta", 
-                                    "Proposta: 200.00 \nTutor: Álvaro Simões", 
-                                    [
-                                    { text:'Aceitar', onPress: ()=> Alert.alert("Notificação", 
-                                        "Aguarde pela confirmação de disponibilidade do tutor escolhido.")},
-                                    { text: 'Cancelar', onPress: ()=> Alert.dismiss()},
-                                  ])
-                                }/>
-                    </View>
-                    <View style={{padding:10, paddingLeft: 25}}>
-                        <Text>jhhhhdsahjdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</Text>
-                    </View>
+
+                </View>
+                <Text style={{fontSize: 18, fontWeight:'bold'}}>Dados Pessoais</Text>
+                <View style={{marginVertical: 20}}>
+                    <InputField
+                        placeholder="Digite o nome"
+                        label="Nome"
+                        error={errors.nome}
+                        onFocus={()=>(
+                            handleError(null, 'email')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'nome')}
+                    />
+                    <InputField
+                        placeholder="Digite o Apelido"
+                        label="Apelido"
+                        error={errors.apelido}
+                        onFocus={()=>(
+                            handleError(null, 'apelido')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'apelido')}
+                    />
+                    <DropDown
+                        label="Genero"
+                        data={genero}
+                        error={errors.genero}
+                        onFocus={()=>(
+                            handleError(null, 'genero')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'genero')}
+                    />
+                    <DateTime
+                        label="Data de Nascimento"
+                        error={errors.dataNascimento}
+                        onFocus={()=>(
+                            handleError(null, 'dataNascimento')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'dataNascimento')}
+                    />
+                    <DropDown
+                        label="Localizacao(provincia)"
+                        data={prov}
+                        error={errors.localizacao}
+                        onFocus={()=>(
+                            handleError(null, 'localizacao')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'localizacao')}
+                    />
+                    <InputField
+                        placeholder="Digite o instituição que frequenta"
+                        label="Instituição"
+                        error={errors.instituicao}
+                        onFocus={()=>(
+                            handleError(null, 'instituicao')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'instituicao')}
+                    />
+                    <Text style={{fontSize: 18, fontWeight:'bold'}}>Dados de Usuario</Text>
+                    <InputField
+                        placeholder="Digite o email"
+                        label="Email"
+                        error={errors.email}
+                        onFocus={()=>(
+                            handleError(null, 'email')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'email')}
+                    />
+                    <InputField
+                        keyboardType="numeric"
+                        placeholder="Digite o Telefone"
+                        label="Telefone"
+                        error={errors.telefone}
+                        onFocus={()=>(
+                            handleError(null, 'telefone')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'telefone')}
+                    />
+                    <InputField
+                        placeholder="Digite o Usuario"
+                        label="Usuario"
+                        error={errors.usuario}
+                        onFocus={()=>(
+                            handleError(null, 'usuario')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'usuario')}
+                    />
+                    <InputField
+                        placeholder="Digite a password"
+                        label="Password"
+                        password
+                        error={errors.password}
+                        onFocus={()=>(
+                            handleError(null, 'password')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'password')}
+                    />
+                    <InputField
+                        placeholder="Digite a confimar password"
+                        label="Confirmar password"
+                        password
+                        error={errors.confpass}
+                        onFocus={()=>(
+                            handleError(null, 'confpass')
+                        )}
+                        onChangeText ={text => handleOnChange(text, 'confpass')}
+                    />
+                    <Button  title="registar" onPress={validate}/>
+                    <Text
+                        onPress={() => navigation.navigate('LoginScreen')}
+                        style={{
+                            textAlign: 'center',
+                            fontSize: 16,
+                            fontWeight: 'bold'
+                        }}>
+                        Ja tem uma conta? Login
+                    </Text>
                 </View>
             </ScrollView>
         </SafeAreaView>
     )
 }
 
-export default Proposal
+export default Home;

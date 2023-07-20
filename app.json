@@ -4,6 +4,10 @@
     "web": {
       "bundler": "metro"
     },
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#232F3E"
+    },
     "name": "KuDondza",
     "slug": "KuDondza"
   }
