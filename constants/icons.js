@@ -11,6 +11,7 @@ import doc from "../assets/icons/doc.png";
 import photo from "../assets/icons/photo.png";
 import plus from "../assets/icons/plus.png";
 import minus from "../assets/icons/minus.png";import Options from '../assets/icons/icons8-three-dots-24.png'
+import Options from '../assets/icons/icons8-three-dots-24.png'
 import Back from '../assets/icons/icons8-back-32.png'
 
 
@@ -25,5 +26,7 @@ export {
     Notification,
     Home,
     Close,
-    user,doc,photo
+    user,doc,photo,
+    Back,
+    Options
 }
