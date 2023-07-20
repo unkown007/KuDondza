@@ -9,6 +9,5 @@ const Home = () => {
             <ProfilePic width = {50} height = {50}/>
         </View>
     )
-}
-
+    }
 export default Home
