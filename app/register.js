@@ -8,7 +8,7 @@ import {
 import { Keyboard } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Home = ({navigation}) => {
+const Register = ({navigation}) => {
     const router = useRouter();
 
     const [inputs, setInputs] = useState({
@@ -272,4 +272,4 @@ const Home = ({navigation}) => {
     )
 };
 
-export default Home;
+export default Register;
