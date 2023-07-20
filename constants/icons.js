@@ -1,5 +1,14 @@
-import back from "../assets/icons/icons8-back-32.png";
+import Search from "../assets/icons/search.png";
+import Chat from "../assets/icons/chat.png";
+import BookWhite from "../assets/icons/bookWhite.png";
+import Notification from "../assets/icons/notification.png";
+import Home from "../assets/icons/home.png";
 
-export default {
-    back
-};
+
+export {
+    Search,
+    Chat,
+    BookWhite,
+    Notification,
+    Home
+}
