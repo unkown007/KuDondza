@@ -154,7 +154,7 @@ const Home = ({navigation}) => {
                     paddingHorizontal: 10
                     }}>
 
-                </View>
+                <View>
                 <Text style={{fontSize: 18, fontWeight:'bold'}}>Dados Pessoais</Text>
                 <View style={{marginVertical: 20}}>
                     <InputField
@@ -269,6 +269,7 @@ const Home = ({navigation}) => {
                         }}>
                         Ja tem uma conta? Login
                     </Text>
+                </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
