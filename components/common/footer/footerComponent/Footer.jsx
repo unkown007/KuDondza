@@ -1,5 +1,5 @@
 import Icon from "../FooterIcon/FooterIcon";
-import {Home, Search, BookWhite, Notification, Chat} from "../../../../constants/Icons";
+import {Home, Search, BookWhite, Notification, Chat} from "../../../../constants/icons";
 import { View } from "react-native";
 import styles from "./Footer.style";
 

@@ -3,6 +3,8 @@ import Chat from "../assets/icons/chat.png";
 import BookWhite from "../assets/icons/bookWhite.png";
 import Notification from "../assets/icons/notification.png";
 import Home from "../assets/icons/home.png";
+import Options from '../assets/icons/icons8-three-dots-24.png'
+import Back from '../assets/icons/icons8-back-32.png'
 
 
 export {
@@ -10,5 +12,7 @@ export {
     Chat,
     BookWhite,
     Notification,
-    Home
+    Home,
+    Options,
+    Back
 }

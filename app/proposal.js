@@ -1,18 +1,3 @@
-/*import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import {COLORS} from '../constants/theme'
-import ProfilePic from "../components/common/profilepic/ProfilePic";
-
-const Home = () => {
-    return (
-        <View style={{ flex: 1, backgroundColor: COLORS.white }}>
-            <ProfilePic width = {50} height = {50}/>
-        </View>
-    )
-    }
-export default Home*/
-
-
 import React from "react";
 import { Stack } from "expo-router";
 import {SafeAreaView, View, Text, ScrollView, Alert} from "react-native";
@@ -23,7 +8,7 @@ import HeaderBtn from '../components/common/header/headerbtn/HeaderbBtn'
 import image from '../assets/icons/R.png'
 import { Back, Options } from "../constants/icons";
 import Footer from '../components/common/footer/footerComponent/Footer'
-import { Button } from "../components";
+
 
 
 const Proposal = ({comments}) => {

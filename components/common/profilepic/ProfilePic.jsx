@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import imageContainer from './ProfilePic.style';
-import R from "../../../assets/icons/R.png"
 
-const ProfilePic = ({width, height}) => {
+
+const ProfilePic = ({image, width, height}) => {
     return(
         <View>
             <TouchableOpacity>
                 <Image 
-                    source={R}
+                    source={image}
                     style = {imageContainer.dimensions(width, height)}
                 />
             </TouchableOpacity>
