@@ -5,9 +5,14 @@ import {COLORS, icons, images, SIZES } from '../constants'
 import { 
     HeaderBtn, InputField, Button
 } from "../components";
+import { back } from "../constants/icons";
 
 const Home = () => {
     const router = useRouter();
+
+    const handlePressBack=()=>{
+        router.back();
+    }
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
@@ -16,7 +21,7 @@ const Home = () => {
                     headerStyle: { backgroundColor: COLORS.white },
                     headerShadowVisible: false,
                     headerLeft: () => (
-                        <HeaderBtn iconUrl={icons.back} dimension="60%"/>
+                        <HeaderBtn iconUrl={back} dimension="60%" handlePress={handlePressBack}/>
                     ),
                     headerTitle: "Registo",
                     headerTitleAlign: "center",
@@ -49,7 +54,7 @@ const Home = () => {
                     />
                     <Button  title="registar"/>
                     <Text
-                        onPress={() => navigation.navigate('LoginScreen')}
+                        onPress={() => navigation.navigate('Login')}
                         style={{
                             textAlign: 'center',
                             fontSize: 16,

@@ -2,25 +2,27 @@ import React from 'react'
 import { TouchableOpacity, Text } from 'react-native'
 import { COLORS } from '../../../constants'
 
-const Button = ({title, onPress = () => {}}) => {
+const Button = ({title, onPress = () => {}, w,h, fontSize, ...props}) => {
     return (
         <TouchableOpacity
             onPress={onPress}
             style={{
-                height: 55,
-                width: '100%',
+                height: h,
+                width: w,
                 backgroundColor: COLORS.blue,
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: 25,
-                marginVertical: 10,
-            }}>
+                marginVertical: 20,
+            }}
+            {...props}>
             <Text
                 style={{
                     color: COLORS.white,
                     fontWeight: 'bold',
-                    fontSize: 18
-                }}>
+                    fontSize: fontSize,
+                }}
+                >
                 {title}
             </Text>
         </TouchableOpacity>

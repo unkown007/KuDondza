@@ -6,6 +6,7 @@ const Logo=({color})=>{
         <Text style={{
             fontSize:40,
             color: color,
+            
         }}>
             KuDondza
         </Text>

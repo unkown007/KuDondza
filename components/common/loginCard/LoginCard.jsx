@@ -3,23 +3,23 @@ import { StyleSheet } from "react-native";
 import { COLORS } from "../../../constants";
 import { useState } from "react";
 
-const LoginCard=({role, text})=>{
-    const [cardCliked, setCardCliked] = useState(false);
+const LoginCard=({role, text, state, onPressCard, navagateTo})=>{
+   // const [cardCliked, setCardCliked] = useState(state);
 
-    const onClickCard=()=>{
-        setCardCliked(!cardCliked);
-    }
-
+    // const onClickCard=()=>{
+    //     onPressCard()
+    //     navagateTo()
+    // }
 
     return(
-        <TouchableOpacity onPress={onClickCard}>
-            {cardCliked ? 
+        <TouchableOpacity onPress={onPressCard}>
+            {state ? 
                 <View style={styles.card("black")}>
-                    <Text style={{  textDecorationLine:"underline"}}>{role}</Text>
+                    <Text style={{ textDecorationLine:"underline"}}>{role}</Text>
                     <Text style={styles.text}>{text}</Text>
                 </View> 
                 :
-                <View style={styles.card(COLORS.borderGray)}>
+                <View style={styles.card(COLORS.bordergray)}>
                     <Text style={{  textDecorationLine: "none"}}>{role}</Text>
                     <Text style={styles.text}>{text}</Text>
                 </View>}
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     }),
 
     text:{
-        //textDecorationLine:
         marginTop: 5,
     }
 
