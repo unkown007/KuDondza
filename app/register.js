@@ -5,11 +5,16 @@ import {COLORS, icons, images, SIZES } from '../constants'
 import { 
     HeaderBtn, InputField, Button, DropDown, DateTime, Loader
 } from "../components";
+import { back } from "../constants/icons";
 import { Keyboard } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Home = ({navigation}) => {
     const router = useRouter();
+
+    const handlePressBack=()=>{
+        router.back();
+    }
 
     const [inputs, setInputs] = useState({
         nome: '',
@@ -130,7 +135,7 @@ const Home = ({navigation}) => {
                     headerStyle: { backgroundColor: COLORS.white },
                     headerShadowVisible: false,
                     headerLeft: () => (
-                        <HeaderBtn iconUrl={icons.back} dimension="60%"/>
+                        <HeaderBtn iconUrl={back} dimension="60%" handlePress={handlePressBack}/>
                     ),
                     headerTitle: "Registo",
                     headerTitleAlign: "center",
@@ -257,7 +262,7 @@ const Home = ({navigation}) => {
                     />
                     <Button  title="registar" onPress={validate}/>
                     <Text
-                        onPress={() => navigation.navigate('LoginScreen')}
+                        onPress={() => navigation.navigate('Login')}
                         style={{
                             textAlign: 'center',
                             fontSize: 16,
