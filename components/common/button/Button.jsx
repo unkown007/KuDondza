@@ -5,6 +5,7 @@ import { COLORS } from '../../../constants'
 const Button = ({title, onPress = () => {}}) => {
     return (
         <TouchableOpacity
+            activeOpacity={0.7}
             onPress={onPress}
             style={{
                 height: 55,
