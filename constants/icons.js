@@ -3,12 +3,6 @@ import Chat from "../assets/icons/chat.png";
 import BookWhite from "../assets/icons/bookWhite.png";
 import Notification from "../assets/icons/notification.png";
 import Home from "../assets/icons/home.png";
-
-import Search from "../assets/icons/search.png";
-import Chat from "../assets/icons/chat.png";
-import BookWhite from "../assets/icons/bookWhite.png";
-import Notification from "../assets/icons/notification.png";
-import Home from "../assets/icons/home.png";
 import back from "../assets/icons/icons8-back-32.png";
 import backBlue from "../assets/icons/backBlue.png";
 import Close from "../assets/icons/close.png";
