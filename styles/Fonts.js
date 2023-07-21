@@ -1,4 +1,4 @@
-/* import * as Font from 'expo-font';
+import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
 const loadFonts = async () => {
   await Font.loadAsync({
@@ -16,7 +16,7 @@ const CustomFont = {
 export default CustomFont;
 
 
-const [isFontLoaded, setIsFontLoaded] = useState(false);
+/*const [isFontLoaded, setIsFontLoaded] = useState(false);
 
   useEffect(() => {
     setIsFontLoaded(true);
@@ -25,5 +25,4 @@ const [isFontLoaded, setIsFontLoaded] = useState(false);
   if (!isFontLoaded) {
     return null;
   }
-
 */

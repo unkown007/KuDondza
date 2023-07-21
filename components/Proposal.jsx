@@ -1,18 +1,24 @@
 import { useState } from "react";
 import { minus, plus } from "../constants/icons";
 import Icon from "./common/footer/FooterIcon/FooterIcon";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-function Proposal({proposal, onclickBtn, imgUrl}){
+function Proposal({proposal, onclickPlus, onclickMinus, imgUrlP,imgUrlM}){
 
     return(
-        <View>
-            <Text>Proposta</Text>
-            <Text>{proposal}</Text>
-            <Icon source={imgUrl} dimension={30} handleclick={onclickBtn}/>
-            {/* <Icon source={plus} dimension={30} handleclick={onclickBtn}/> */}
+        <View style={styles.prop}>
+            <Text style={{fontSize:18, marginRight:25}}>Proposta:</Text>
+            <Text style={{fontSize:18, marginRight:25}} >{proposal}</Text>
+            <Icon source={imgUrlM} dimension={25} handleclick={onclickMinus}/>
+            <Icon source={imgUrlP} dimension={25} handleclick={onclickPlus}/>
         </View>
     )
 }
 
+const styles=StyleSheet.create({
+    prop:{
+       flexDirection:"row",
+       alignItems:"center", 
+    }
+})
 export default Proposal;

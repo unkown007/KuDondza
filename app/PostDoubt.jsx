@@ -7,14 +7,36 @@ import Button from "../components/common/button/Button";
 import Icon from "../components/common/footer/FooterIcon/FooterIcon";
 import { ScrollView } from "react-native-gesture-handler";
 import TextArea from "../components/textArea/TextArea";
-import { TextInput } from 'react-native-gesture-handler';
-import InputField  from "../components/common/inputfield/InputField";
+import { useState } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function PostDoubt(){
-
     const router = useRouter();
+    const [errors, setError] = useState({});
 
-    const handlePressBack=()=>{
+    const inicialValus={
+        doubt:"",
+    }
+    const [duvida, setDoubt] = useState('');
+
+    handleOnChange=(text)=>{
+        setDoubt(text)
+    }
+
+    const validate=()=>{      
+        if(!doubt.doubt){
+            setError({doubt:"Este Campo nao pode estar em branco, insira a sua duvida."})
+           // errors.doubt = 
+        }
+    }
+
+    const onSubmit=()=>{
+        try {
+            AsyncStorage.setItem('duvida', duvida);
+            router.push("/PostDoubtProposal");
+          } catch (error) {
+            console.log('Erro ao salvar no AsyncStorage:', error);
+          }
         
     }
 
@@ -35,7 +57,7 @@ function PostDoubt(){
                             paddingRight:25
                             }}>
                                   <Button title={"Seguinte"} w={100} h={25} fontSize={15}
-                                    onPress={()=>router.push("/PostDoubtProposal")}
+                                    onPress={onSubmit}
                                   />
                         </View>
                       
@@ -47,9 +69,10 @@ function PostDoubt(){
             <ScrollView showsVerticalScrollIndicator={false}
                 
                 contentContainerStyle={{
-                    paddingHorizontal:25,
+                    paddingHorizontal:30,
                     borderTopWidth:1,
                     borderTopColor:COLORS.grey,
+                    backgroundColor:COLORS.white
                 }}
             >
                 <View style={{flexDirection:"row", alignItems: "center", marginTop:20}}>
@@ -61,9 +84,15 @@ function PostDoubt(){
                     marginTop:20, height:350}}>
                     <TextArea
                         placeholder="Qual é a ajuda que precisa?"
+                        handleChange={handleOnChange}
+                        // error={errors.doubt}
+                        // blur={validate}
+                        v={duvida}
+                        editable={true}
                     />
                 </View>
-                <View  style={{flexDirection:"row", alignItems: "center", marginTop:120,}}>
+
+                <View  style={{flexDirection:"row", alignItems: "center", marginTop:120,paddingBottom:110}}>
                     <TouchableOpacity>
                         <View style={{borderWidth:1, borepadding:5, justifyContent:"center", flexDirection:"row", alignItems:"center",
                          borderRadius:50, height:50, width:50, marginRight:10}}>

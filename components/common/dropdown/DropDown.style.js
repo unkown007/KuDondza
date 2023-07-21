@@ -4,7 +4,7 @@ import { COLORS, SIZES } from "../../../constants";
 const styles = StyleSheet.create({
     label: {
         marginVertical: 5,
-        fontSize: 14,
+        fontSize: 15,
     },
     inputContainer: {
         height: 55,

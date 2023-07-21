@@ -3,7 +3,7 @@ import { SelectList } from 'react-native-dropdown-select-list'
 import { View, Text } from 'react-native'
 import styles from './DropDown.style'
 
-const DropDown = ({label, data}) => {
+const DropDown = ({label, data, onSelectItem}) => {
     const [selected, setSelected] = React.useState("")
 
     return (
@@ -17,6 +17,7 @@ const DropDown = ({label, data}) => {
                 setSelected={(val) => setSelected(val)}
                 data={data}
                 save="value"
+                onSelect={onSelectItem}
             />
         </View>
     )
