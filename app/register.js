@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, ScrollView, SafeAreaView, Text } from 'react-native';
+import { View, ScrollView, SafeAreaView, Text, Alert } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import {COLORS, icons, images, SIZES } from '../constants'
 import { 
@@ -9,7 +9,7 @@ import { back } from "../constants/icons";
 import { Keyboard } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Home = ({navigation}) => {
+const Register = ({navigation}) => {
     const router = useRouter();
 
     const handlePressBack=()=>{
@@ -68,8 +68,9 @@ const Home = ({navigation}) => {
 
         if (!inputs.password) {
             handleError("Por favor insira a password", "password")
-        } else if (inputs.password.length < 8) {
+        } else if (inputs.password.length < 5) {
             handleError("Por favor insira no minimo 5 characteres", "password")
+            valid = false
         }
 
         if (!inputs.confpass) {
@@ -79,8 +80,6 @@ const Home = ({navigation}) => {
         if (!inputs.email) {
             handleError("Por favor insira o email", "email")
             valid = false
-        } else if (!inputs.email.match(/\S+@\S+\.\S+/)) {
-            handleError("Por favor insira um email valid", "email")
         }
 
         if (valid) {
@@ -94,7 +93,7 @@ const Home = ({navigation}) => {
             setLoading(false);
             try {
                 AsyncStorage.setItem('user', JSON.stringify(inputs))
-                navigation.navigate("LoginScreen")
+                navigation.navigate("Login")
             } catch (error) {
                 Alert.alert("Error")
             }
@@ -130,18 +129,7 @@ const Home = ({navigation}) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             <Loader visible={loading}/>
-            <Stack.Screen
-                options={{
-                    headerStyle: { backgroundColor: COLORS.white },
-                    headerShadowVisible: false,
-                    headerLeft: () => (
-                        <HeaderBtn iconUrl={back} dimension="60%" handlePress={handlePressBack}/>
-                    ),
-                    headerTitle: "Registo",
-                    headerTitleAlign: "center",
-                    headerTintColor: COLORS.blue
-                }}
-            />
+            
             <ScrollView showsVerticalScrollIndicator={false}
                 contentContainerStyle={{
                     paddingTop: 5,
@@ -260,7 +248,7 @@ const Home = ({navigation}) => {
                         )}
                         onChangeText ={text => handleOnChange(text, 'confpass')}
                     />
-                    <Button  title="registar" onPress={validate}/>
+                    <Button  title="registar" w='100%' h={50} onPress={validate}/>
                     <Text
                         onPress={() => navigation.navigate('Login')}
                         style={{
@@ -277,4 +265,4 @@ const Home = ({navigation}) => {
     )
 };
 
-export default Home;
+export default Register;

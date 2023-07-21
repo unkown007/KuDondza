@@ -7,7 +7,7 @@ import { useRouter, Stack } from "expo-router";
 import { back,  backBlue} from "../constants/icons";
 import { useState } from "react";
 
-const LoginAs=()=>{
+const LoginAs=({navigation})=>{
     const [cardActive1, setCardactive1] = useState(null);
     const [cardActive2, setCardactive2] = useState(null);
     const router = useRouter();
@@ -20,6 +20,7 @@ const LoginAs=()=>{
     const clickCard1=()=>{
         setCardactive1(true);
         setCardactive2(false);
+       // navigation.navigate("regis")
         router.push("/register");
 
     }
@@ -27,7 +28,7 @@ const LoginAs=()=>{
     const clickCard2=()=>{
         setCardactive1(false);
         setCardactive2(true);
-        router.push("/register");
+        router.push("register");
     }
 
     return(
