@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigator, Stack, useRouter} from "expo-router";
+import { Stack, useRouter} from "expo-router";
 import {SafeAreaView, View, Text, ScrollView, Alert} from "react-native";
 import {COLORS, SIZES} from '../constants/theme'
 import BlueBtn from '../components/common/bluebtn/BlueBtn';
@@ -8,14 +8,12 @@ import HeaderBtn from '../components/common/header/headerbtn/HeaderbBtn'
 import image from '../assets/icons/R.png'
 import { Back, Options } from "../constants/icons";
 import Footer from '../components/common/footer/footerComponent/Footer'
+import { Button } from "../components";
 
 
 
-const Proposal = ({navigation}) => {
+function ProposalOff({navigation}) {
     const router = useRouter();
-    const handlePressGo=()=>{
-        router.push('/Interaction')
-    }
     return(
         <SafeAreaView style = {{ flex: 1, backgroundColor: COLORS.white }}>
             <Stack.Screen
@@ -23,6 +21,9 @@ const Proposal = ({navigation}) => {
                     headerStyle: { backgroundColor: COLORS.white },
                     headerShadowVisible: false,
                     headerBackVisible: true,
+                    /*headerLeft: () => (
+                            <HeaderBtn iconUrl = {Back} dimension ="60%" onPress = {() => navigation.navigate("Interaction")}/>
+                    ),*/
                     headerTitle: "Proposta",
                     headerTitleAlign: "center",
                     headerTintColor: COLORS.blue
@@ -47,8 +48,8 @@ const Proposal = ({navigation}) => {
                             <ProfilePic image = {image} width ={50} height ={50} />
                         </View>
                         <View style = {{padding :5, }}>
-                            <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> Nome_apelido</Text>
-                            <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 12 min</Text>
+                            <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> luisa_costa</Text>
+                            <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 49 s</Text>
                         </View>
                     </View>
                     <View>
@@ -81,10 +82,10 @@ const Proposal = ({navigation}) => {
                                 <ProfilePic image = {image} width ={20} height ={20} />
                             </View>
                             <View style = {{padding :5 }}>
-                                <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> luisa_costa</Text>
+                                <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> alvaro_simoes</Text>
                             </View>
                             <View style = {{top: 2}}>
-                                <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 49 s</Text>
+                                <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 10s</Text>
                             </View>
                         </View>
                         <View style ={{bottom: 7}} >
@@ -98,24 +99,12 @@ const Proposal = ({navigation}) => {
                         <View style={{paddingLeft: 25}}>
                             <Text> Proposta: 300.00 </Text>
                         </View>
-                        <BlueBtn
-                            width= {80}     
-                            height = {20}
-                            text = 'Aceitar'
-                            onPress = {()=> 
-                                Alert.alert(
-                                    "Aceitar Proposta", 
-                                    "Proposta: 200.00 \nTutor: Álvaro Simões", 
-                                    [
-                                    { text:'Aceitar', onPress: ()=> 
-                                        Alert.alert(
-                                            "Notificação", 
-                                            "Aguarde pela confirmação de disponibilidade do tutor escolhido.",
-                                            [{text: "OK", onPress: () => navigation.navigate("Interaction")}]
-                                            )},
-                                            { text: 'Cancelar', onPress: ()=> Alert.dismiss()},
-                                  ])
-                                }/>
+                        <Button
+                            w= {80}     
+                            h = {20}
+                            title = 'Aceitar'
+                            style={{color: COLORS.grey}}
+                            />
                     </View>
                     <View style={{padding:10, paddingLeft: 25}}>
                         <Text>Esta matéria é mais simples do que parece</Text>
@@ -126,4 +115,4 @@ const Proposal = ({navigation}) => {
     )
 }
 
-export default Proposal
+export default ProposalOff
