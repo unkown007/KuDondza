@@ -51,7 +51,7 @@ const Login = ({navigation}) => {
 
         if (valid) {
             console.log(inputs)
-            navigation.navigate("/Feed");
+            navigation.navigate("Feed");
         }
     }
 

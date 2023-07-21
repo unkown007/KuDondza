@@ -10,6 +10,7 @@ import TextArea from "../components/textArea/TextArea";
 import { useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 function PostDoubt({navigation}){
     const router = useRouter();
     const [errors, setError] = useState({});
@@ -41,15 +42,29 @@ function PostDoubt({navigation}){
         
     }
 
+   
     return(
         <SafeAreaView>
-             <Stack.Screen
+     
+            <ScrollView showsVerticalScrollIndicator={false}
+                
+                contentContainerStyle={{
+                    paddingHorizontal:30,
+                    borderTopWidth:1,
+                    borderTopColor:COLORS.grey,
+                    backgroundColor:COLORS.white
+                }}
+            >
+
+            {/* <Stack.Screen
+                name="PostDoubt"
+                component={PostDoubt}
                 options={{
                     headerStyle: { backgroundColor: COLORS.white, },
                     headerShadowVisible: false,
-                    headerLeft: () => (
-                        <HeaderBtn iconUrl={Close} dimension="60%" handlePress={()=>router.back()}/>
-                    ),
+                    // headerLeft: () => (
+                    //     // <HeaderBtn iconUrl={Close} dimension="60%"/>
+                    // ),
                     headerTitle: ()=>(
                         <View style={{
                             width:300, height:70,
@@ -65,17 +80,8 @@ function PostDoubt({navigation}){
                     ),
                     
                 }}
-            />
-     
-            <ScrollView showsVerticalScrollIndicator={false}
-                
-                contentContainerStyle={{
-                    paddingHorizontal:30,
-                    borderTopWidth:1,
-                    borderTopColor:COLORS.grey,
-                    backgroundColor:COLORS.white
-                }}
-            >
+            /> */}
+
                 <View style={{flexDirection:"row", alignItems: "center", marginTop:20}}>
                     <Icon source={user} dimension={40}/>
                     <Text style={{fontSize: 15, marginLeft:5}}>luisa_costa</Text>
@@ -93,7 +99,7 @@ function PostDoubt({navigation}){
                     />
                 </View>
 
-                <View  style={{flexDirection:"row", alignItems: "center", marginTop:120,paddingBottom:110}}>
+                <View  style={{flexDirection:"row", alignItems: "center", marginTop:120,paddingBottom:20}}>
                     <TouchableOpacity>
                         <View style={{borderWidth:1, borepadding:5, justifyContent:"center", flexDirection:"row", alignItems:"center",
                          borderRadius:50, height:50, width:50, marginRight:10}}>
@@ -108,7 +114,9 @@ function PostDoubt({navigation}){
                         </View>
                     </TouchableOpacity>               
                 </View>
-                
+                <Button title={"Seguinte"} w={100} h={25} fontSize={15}
+                    onPress={onSubmit}
+                />
             </ScrollView>           
         </SafeAreaView>
     )

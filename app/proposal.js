@@ -19,14 +19,7 @@ const Proposal = ({navigation}) => {
     return(
         <SafeAreaView style = {{ flex: 1, backgroundColor: COLORS.white }}>
             <Stack.Screen
-                options={{
-                    headerStyle: { backgroundColor: COLORS.white },
-                    headerShadowVisible: false,
-                    headerBackVisible: true,
-                    headerTitle: "Proposta",
-                    headerTitleAlign: "center",
-                    headerTintColor: COLORS.blue
-                }}
+                
             />
             <Footer/>
 

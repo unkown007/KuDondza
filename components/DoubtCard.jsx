@@ -6,8 +6,10 @@ import { COLORS, SIZES } from "../constants"
 import { Options } from "../constants/icons"
 import { BookWhite } from "../constants/icons"
 import Icon from "./common/footer/FooterIcon/FooterIcon"
+import { useRouter } from "expo-router"
 
-function DoubtCard({imgUrl, name, doubt, icon, icon2, icon3, proposal}){
+function DoubtCard({navigation, imgUrl, name, doubt, icon, icon2, icon3, proposal}){
+    const router = useRouter()
     return(
         <View style={{
             borderTopWidth:1,
@@ -17,7 +19,8 @@ function DoubtCard({imgUrl, name, doubt, icon, icon2, icon3, proposal}){
             paddingVertical:10,
             marginBottom:10,
             paddingHorizontal:25
-        }}>
+        }}
+        >
            <View style= {{flexDirection: 'row', justifyContent: 'space-between', alignItems:"center"}}>
                 <View style = {{flexDirection: 'row'}}>
                     <View style = {{top: 3, marginRight:10}}>
@@ -35,7 +38,9 @@ function DoubtCard({imgUrl, name, doubt, icon, icon2, icon3, proposal}){
                         dimension ="60%"/>
                 </View>
             </View> 
-            <Text style={{marginTop:5, textAlign:"justify"}}>{doubt}</Text>
+            <Text style={{marginTop:5, textAlign:"justify"}}
+                onPress={() => router.push("proposal")}
+            >{doubt}</Text>
             <Text style={{marginTop:20}}>Proposta: {proposal}</Text>
             <View style={{
                     flexDirection:"row",

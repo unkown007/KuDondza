@@ -5,17 +5,18 @@ import { ScrollView } from "react-native";
 import DoubtCard from "../components/DoubtCard";
 import { icon,icon2,icon3, PostDbt,back } from "../constants/icons";
 import Icon from "../components/common/footer/FooterIcon/FooterIcon";
-import { useRouter } from "expo-router";
+import { useRouter, Stack } from "expo-router";
 import Footer from "../components/common/footer/footerComponent/Footer";
+import { HeaderBtn } from "../components/common/header/headerbtn/HeaderbBtn"
 
 function Feed({navigation}){
     const router = useRouter();
 
     return(
         <SafeAreaView style={{backgroundColor:COLORS.white,}}>
-            <Stack.Screen
-                name='Feed'
-                component={Register}
+            {/* <Stack.Screen
+                // name='Feed'
+                // component={Register}
                 options={{
                     headerStyle: { backgroundColor: COLORS.white },
                     headerShadowVisible: false,
@@ -26,9 +27,9 @@ function Feed({navigation}){
                     headerTitleAlign: "center",
                     headerTintColor: COLORS.blue
                 }}
-            /> 
+            />  */}
             
-            <ScrollView>
+            {/* <ScrollView> */}
                 <View>
                     <FlatList
                         data={DATA}
@@ -49,7 +50,7 @@ function Feed({navigation}){
                     />
                    
                 </View>                                 
-            </ScrollView>
+            {/* </ScrollView> */}
             <View style={{
                 zIndex:20,
                 position:"absolute",

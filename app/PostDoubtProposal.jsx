@@ -58,9 +58,9 @@ const PostDoubtProposal=({navigation})=>{
                 options={{
                     headerStyle: { backgroundColor: COLORS.white, },
                     headerShadowVisible: false,
-                    headerLeft: () => (
-                        <HeaderBtn iconUrl={back} dimension="60%" handlePress={()=>router.back()}/>
-                    ),
+                    // headerLeft: () => (
+                    //     <HeaderBtn iconUrl={back} dimension="60%" handlePress={()=>router.back()}/>
+                    // ),
                     headerTitle: ()=>(
                         <View style={{
                                 width:300, height:70,
@@ -115,7 +115,9 @@ const PostDoubtProposal=({navigation})=>{
                 </View>
                 
             </ScrollView>
-
+            {/* <Button title={"Postar"} w={100} h={25} fontSize={15}
+                onPress={()=>navigation.navigate("Feed")}
+            /> */}
         </SafeAreaView>
     )
 }
