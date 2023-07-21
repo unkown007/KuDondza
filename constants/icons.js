@@ -10,9 +10,14 @@ import user from "../assets/icons/R.png";
 import doc from "../assets/icons/doc.png";
 import photo from "../assets/icons/photo.png";
 import plus from "../assets/icons/plus.png";
-import minus from "../assets/icons/minus.png";import Options from '../assets/icons/icons8-three-dots-24.png'
+import minus from "../assets/icons/minus.png";
 import Options from '../assets/icons/icons8-three-dots-24.png'
 import Back from '../assets/icons/icons8-back-32.png'
+import camera from '../assets/icons/icons8-camera-24.png'
+import call from '../assets/icons/icons8-call-50.png'
+import video from '../assets/icons/icons8-video-camera-50.png'
+import microphone from '../assets/icons/icons8-microphone-48.png'
+import plus1 from '../assets/icons/icons8-plus-24.png'
 
 
 export {
@@ -28,5 +33,7 @@ export {
     Close,
     user,doc,photo,
     Back,
-    Options
+    Options, 
+    camera, 
+    call, video, microphone, plus1
 }

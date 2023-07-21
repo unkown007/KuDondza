@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigator, Stack, useRouter} from "expo-router";
+import { Stack, useRouter} from "expo-router";
 import {SafeAreaView, View, Text, ScrollView, Alert} from "react-native";
 import {COLORS, SIZES} from '../constants/theme'
 import BlueBtn from '../components/common/bluebtn/BlueBtn';
@@ -11,11 +11,8 @@ import Footer from '../components/common/footer/footerComponent/Footer'
 
 
 
-const Proposal = ({comments}) => {
+function ProposalOff({comments}) {
     const router = useRouter();
-    const handlePressGo=()=>{
-        router.push('/Interaction')
-    }
     return(
         <SafeAreaView style = {{ flex: 1, backgroundColor: COLORS.white }}>
             <Stack.Screen
@@ -50,8 +47,8 @@ const Proposal = ({comments}) => {
                             <ProfilePic image = {image} width ={50} height ={50} />
                         </View>
                         <View style = {{padding :5, }}>
-                            <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> Nome_apelido</Text>
-                            <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 12 min</Text>
+                            <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> luisa_costa</Text>
+                            <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 49 s</Text>
                         </View>
                     </View>
                     <View>
@@ -84,10 +81,10 @@ const Proposal = ({comments}) => {
                                 <ProfilePic image = {image} width ={20} height ={20} />
                             </View>
                             <View style = {{padding :5 }}>
-                                <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> luisa_costa</Text>
+                                <Text style ={{fontSize: SIZES.small, fontWeight:'bold'}}> alvaro_simoes</Text>
                             </View>
                             <View style = {{top: 2}}>
-                                <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 49 s</Text>
+                                <Text style ={{fontSize: SIZES.xSmall, paddingTop: 5}}> 10s</Text>
                             </View>
                         </View>
                         <View style ={{bottom: 7}} >
@@ -105,20 +102,8 @@ const Proposal = ({comments}) => {
                             width= {80}     
                             height = {20}
                             text = 'Aceitar'
-                            onPress = {()=> 
-                                Alert.alert(
-                                    "Aceitar Proposta", 
-                                    "Proposta: 200.00 \nTutor: Álvaro Simões", 
-                                    [
-                                    { text:'Aceitar', onPress: ()=> 
-                                        Alert.alert(
-                                            "Notificação", 
-                                            "Aguarde pela confirmação de disponibilidade do tutor escolhido.",
-                                            [{text: "OK", onPress: {handlePressGo}}]
-                                            )},
-                                            { text: 'Cancelar', onPress: ()=> Alert.dismiss()},
-                                  ])
-                                }/>
+                            style={{color: COLORS.grey}}
+                            />
                     </View>
                     <View style={{padding:10, paddingLeft: 25}}>
                         <Text>Esta matéria é mais simples do que parece</Text>
@@ -129,4 +114,4 @@ const Proposal = ({comments}) => {
     )
 }
 
-export default Proposal
+export default ProposalOff
