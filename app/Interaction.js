@@ -15,12 +15,8 @@ import { Navigator } from "expo-router";
 
 
 
-const Interaction = ({navigator}) =>{
-    const router = useRouter();
-
-    const handlePressBack=()=>{
-        router.push('/ProposalOff')
-    }
+const Interaction = ({navigation}) =>{
+    
 
     return(
         <SafeAreaView style={{height: '100%'}} >
@@ -29,7 +25,7 @@ const Interaction = ({navigator}) =>{
                     headerStyle: { backgroundColor: COLORS.white, },
                     headerShadowVisible: false,
                     headerLeft: () => (
-                        <HeaderBtn iconUrl={Back} dimension="60%" onPress={navigator.navigate('ProposalOff')}/>
+                        <HeaderBtn iconUrl={Back} dimension="60%" handlePress={() => navigation.navigate('ProposalOff')}/>
                     ),
                     headerTitle: "Cálculo de IPv4",
                     headerTitleAlign: "center",
@@ -38,7 +34,7 @@ const Interaction = ({navigator}) =>{
                         <View style= {{flexDirection: "row"}}>
                             <HeaderBtn iconUrl={video} dimension="60%"/>
                             <HeaderBtn iconUrl={call} dimension="60%"/>
-                            <HeaderBtn iconUrl={Options} dimension="60%" handlePress={()=>router.back()}/>
+                            <HeaderBtn iconUrl={Options} dimension="60%" handlePress={null}/>
                         </View>   
                     ),
                 }}

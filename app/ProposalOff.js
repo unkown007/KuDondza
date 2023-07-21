@@ -8,10 +8,11 @@ import HeaderBtn from '../components/common/header/headerbtn/HeaderbBtn'
 import image from '../assets/icons/R.png'
 import { Back, Options } from "../constants/icons";
 import Footer from '../components/common/footer/footerComponent/Footer'
+import { Button } from "../components";
 
 
 
-function ProposalOff({comments}) {
+function ProposalOff({navigation}) {
     const router = useRouter();
     return(
         <SafeAreaView style = {{ flex: 1, backgroundColor: COLORS.white }}>
@@ -20,9 +21,9 @@ function ProposalOff({comments}) {
                     headerStyle: { backgroundColor: COLORS.white },
                     headerShadowVisible: false,
                     headerBackVisible: true,
-                    headerLeft: () => (
-                            <HeaderBtn iconUrl = {Back} dimension ="60%" handlePress={null}/>
-                    ),
+                    /*headerLeft: () => (
+                            <HeaderBtn iconUrl = {Back} dimension ="60%" onPress = {() => navigation.navigate("Interaction")}/>
+                    ),*/
                     headerTitle: "Proposta",
                     headerTitleAlign: "center",
                     headerTintColor: COLORS.blue
@@ -98,10 +99,10 @@ function ProposalOff({comments}) {
                         <View style={{paddingLeft: 25}}>
                             <Text> Proposta: 300.00 </Text>
                         </View>
-                        <BlueBtn
-                            width= {80}     
-                            height = {20}
-                            text = 'Aceitar'
+                        <Button
+                            w= {80}     
+                            h = {20}
+                            title = 'Aceitar'
                             style={{color: COLORS.grey}}
                             />
                     </View>

@@ -11,7 +11,7 @@ import Footer from '../components/common/footer/footerComponent/Footer'
 
 
 
-const Proposal = ({comments}) => {
+const Proposal = ({navigation}) => {
     const router = useRouter();
     const handlePressGo=()=>{
         router.push('/Interaction')
@@ -23,9 +23,6 @@ const Proposal = ({comments}) => {
                     headerStyle: { backgroundColor: COLORS.white },
                     headerShadowVisible: false,
                     headerBackVisible: true,
-                    headerLeft: () => (
-                            <HeaderBtn iconUrl = {Back} dimension ="60%" handlePress={null}/>
-                    ),
                     headerTitle: "Proposta",
                     headerTitleAlign: "center",
                     headerTintColor: COLORS.blue
@@ -114,7 +111,7 @@ const Proposal = ({comments}) => {
                                         Alert.alert(
                                             "Notificação", 
                                             "Aguarde pela confirmação de disponibilidade do tutor escolhido.",
-                                            [{text: "OK", onPress: {handlePressGo}}]
+                                            [{text: "OK", onPress: () => navigation.navigate("Interaction")}]
                                             )},
                                             { text: 'Cancelar', onPress: ()=> Alert.dismiss()},
                                   ])
