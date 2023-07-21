@@ -18,9 +18,15 @@ import call from '../assets/icons/icons8-call-50.png'
 import video from '../assets/icons/icons8-video-camera-50.png'
 import microphone from '../assets/icons/icons8-microphone-48.png'
 import plus1 from '../assets/icons/icons8-plus-24.png'
+import icon from '../assets/icons/icons8-plus-and-minus-50.png'
+import icon2 from '../assets/icons/bookmark.png'
+import icon3 from '../assets/icons/share.png'
+import PostDbt from "../assets/icons/icons8-plus-50.png"
 
 
 export {
+    PostDbt,
+    icon,icon2,icon3,
     plus,
     minus,
     backBlue,

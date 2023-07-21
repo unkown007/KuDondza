@@ -83,7 +83,8 @@ const Register = ({navigation}) => {
         }
 
         if (valid) {
-            register();
+            //register();
+            navigation.navigate("Login");
         }
     }
 
@@ -248,7 +249,7 @@ const Register = ({navigation}) => {
                         )}
                         onChangeText ={text => handleOnChange(text, 'confpass')}
                     />
-                    <Button  title="registar" w='100%' h={40} onPress={validate}/>
+                    <Button  title="registar" w='100%' h={50} onPress={validate}/>
                     <Text
                         onPress={() => navigation.navigate('Login')}
                         style={{

@@ -2,13 +2,16 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './Login';
 import Register from './register';
-
 import { COLORS } from '../constants';
 import { HeaderBtn } from '../components';
-import { back } from '../constants/icons';
+import { PostDbt, back } from '../constants/icons';
 import Proposal from './proposal';
 import ProposalOff from './ProposalOff';
 import Interaction from './Interaction';
+import Feed from './Feed';
+import PostDoubt from './PostDoubt';
+import PostDoubtProposal from "./PostDoubtProposal"
+import LoginAs from './LoginAs';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,10 +52,25 @@ const MyStack = () => {
                 name="Interaction"
                 component={Interaction}
             />
-            {/*<Stack.Screen
+            {/* <Stack.Screen
                 name="Feed"
                 component={Feed}
-            />*/}
+            /> */}
+
+            <Stack.Screen
+                name="Post Doubt"
+                component={PostDoubt}
+            />
+
+            <Stack.Screen
+                name="Post Proposal"
+                component={PostDoubtProposal}
+            />
+
+             <Stack.Screen
+                name="Login As"
+                component={LoginAs}
+            />
             
 
         </Stack.Navigator>

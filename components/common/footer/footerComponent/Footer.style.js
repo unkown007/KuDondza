@@ -3,6 +3,7 @@ import { COLORS } from "../../../../constants";
 
 const styles = StyleSheet.create({
     footer:{
+        backgroundColor:COLORS.white,
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around', 

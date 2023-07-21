@@ -6,11 +6,11 @@ import styles from "./Footer.style";
 const Footer=()=>{
     return(
         <View style={styles.footer}>
-            {/* <Icon source={Home}/>
-            <Icon source={Search}/>
-            <Icon source={BookWhite}/>         
-            <Icon source={Notification}/>
-            <Icon source={Chat}/> */}
+            <Icon source={Home} dimension={30}/>
+            <Icon source={Search} dimension={30}/>
+            <Icon source={BookWhite} dimension={30}/>         
+            <Icon source={Notification} dimension={30}/>
+            <Icon source={Chat} dimension={30}/>
         </View>
     )
 }

@@ -35,6 +35,7 @@ const Login = ({navigation}) => {
     })
     const [errors, setErrors] = useState({})
     const [loading, setLoading] = useState(false)
+
     const validate = () => {
         Keyboard.dismiss()
         let valid = true
@@ -50,9 +51,11 @@ const Login = ({navigation}) => {
 
         if (valid) {
             console.log(inputs)
-            login();
+            navigation.navigate("/Feed");
         }
     }
+
+    
 
     const login = () => {
         setLoading(true);
