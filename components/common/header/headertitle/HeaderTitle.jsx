@@ -3,10 +3,10 @@ import { View, Text } from 'react-native'
 
 import styles from './headertitle.style'
 
-const HeaderTitle = () => {
+const HeaderTitle = ({text, color, fontsize}) => {
     return (
-        <View>
-            <Text>HeaderTitle</Text>
+        <View style = {styles.txtContainer}>
+            <Text style={{ color: color, fontSize: fontsize }}>{text}</Text>
         </View>
     )
 }

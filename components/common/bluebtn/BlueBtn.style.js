@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES, FONT } from "../../constants/theme";
+import { COLORS, SIZES, FONT } from "../../../constants/theme";
 
 const styles = StyleSheet.create({
     btnContainer: (widthdim, heightdim) => ({

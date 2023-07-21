@@ -1,10 +1,42 @@
 import {NavigationContainer} from '@react-navigation/native';
-import Home from "./register";
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Login from './Login';
+import Register from './register';
 
-const App = () => {
+import { COLORS } from '../constants';
+import { HeaderBtn } from '../components';
+import { back } from '../constants/icons';
+
+const Stack = createNativeStackNavigator();
+
+const MyStack = () => {
     return (
-        <Home />
-    )
-};
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{
+                    title: 'Login',
+                    headerShown: false
+                }}
+            />
+            <Stack.Screen
+                name='register'
+                component={Register}
+                options={{
+                    headerStyle: { backgroundColor: COLORS.white },
+                    headerShadowVisible: false,
+                    headerLeft: () => (
+                        <HeaderBtn iconUrl={back} dimension="60%"/>
+                    ),
+                    headerTitle: "Registo",
+                    headerTitleAlign: "center",
+                    headerTintColor: COLORS.blue
+                }}
+            /> 
+        </Stack.Navigator>
+    );
+}
 
-export default App;
+export default MyStack;
+//handlePress={handlePressBack}

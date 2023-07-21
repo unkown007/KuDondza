@@ -1,15 +1,20 @@
 import { useState } from "react";
-import { View, ScrollView, SafeAreaView, Text } from 'react-native';
+import { View, ScrollView, SafeAreaView, Text, Alert } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import {COLORS, icons, images, SIZES } from '../constants'
 import { 
     HeaderBtn, InputField, Button, DropDown, DateTime, Loader
 } from "../components";
+import { back } from "../constants/icons";
 import { Keyboard } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Register = ({navigation}) => {
     const router = useRouter();
+
+    const handlePressBack=()=>{
+        router.back();
+    }
 
     const [inputs, setInputs] = useState({
         nome: '',
@@ -63,8 +68,9 @@ const Register = ({navigation}) => {
 
         if (!inputs.password) {
             handleError("Por favor insira a password", "password")
-        } else if (inputs.password.length < 8) {
+        } else if (inputs.password.length < 5) {
             handleError("Por favor insira no minimo 5 characteres", "password")
+            valid = false
         }
 
         if (!inputs.confpass) {
@@ -74,8 +80,6 @@ const Register = ({navigation}) => {
         if (!inputs.email) {
             handleError("Por favor insira o email", "email")
             valid = false
-        } else if (!inputs.email.match(/\S+@\S+\.\S+/)) {
-            handleError("Por favor insira um email valid", "email")
         }
 
         if (valid) {
@@ -89,7 +93,7 @@ const Register = ({navigation}) => {
             setLoading(false);
             try {
                 AsyncStorage.setItem('user', JSON.stringify(inputs))
-                navigation.navigate("LoginScreen")
+                navigation.navigate("Login")
             } catch (error) {
                 Alert.alert("Error")
             }
@@ -125,18 +129,7 @@ const Register = ({navigation}) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             <Loader visible={loading}/>
-            <Stack.Screen
-                options={{
-                    headerStyle: { backgroundColor: COLORS.white },
-                    headerShadowVisible: false,
-                    headerLeft: () => (
-                        <HeaderBtn iconUrl={icons.back} dimension="60%"/>
-                    ),
-                    headerTitle: "Registo",
-                    headerTitleAlign: "center",
-                    headerTintColor: COLORS.blue
-                }}
-            />
+            
             <ScrollView showsVerticalScrollIndicator={false}
                 contentContainerStyle={{
                     paddingTop: 5,
@@ -255,9 +248,9 @@ const Register = ({navigation}) => {
                         )}
                         onChangeText ={text => handleOnChange(text, 'confpass')}
                     />
-                    <Button  title="registar" onPress={validate}/>
+                    <Button  title="registar" w='100%' h={40} onPress={validate}/>
                     <Text
-                        onPress={() => navigation.navigate('LoginScreen')}
+                        onPress={() => navigation.navigate('Login')}
                         style={{
                             textAlign: 'center',
                             fontSize: 16,
