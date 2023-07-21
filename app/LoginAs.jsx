@@ -20,15 +20,16 @@ const LoginAs=({navigation})=>{
     const clickCard1=()=>{
         setCardactive1(true);
         setCardactive2(false);
-       // navigation.navigate("regis")
-        router.push("/register");
+       navigation.navigate("register")
+        //router.push("/register");
 
     }
 
     const clickCard2=()=>{
         setCardactive1(false);
         setCardactive2(true);
-        router.push("register");
+        navigation.navigate("register")
+        //router.push("register");
     }
 
     return(

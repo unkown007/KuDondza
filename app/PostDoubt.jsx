@@ -10,7 +10,7 @@ import TextArea from "../components/textArea/TextArea";
 import { useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function PostDoubt(){
+function PostDoubt({navigation}){
     const router = useRouter();
     const [errors, setError] = useState({});
 
@@ -33,7 +33,8 @@ function PostDoubt(){
     const onSubmit=()=>{
         try {
             AsyncStorage.setItem('duvida', duvida);
-            router.push("/PostDoubtProposal");
+            //router.push("/PostDoubtProposal");
+            navigation.navigate("PostDoubtProposal");
           } catch (error) {
             console.log('Erro ao salvar no AsyncStorage:', error);
           }

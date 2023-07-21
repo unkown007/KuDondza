@@ -164,7 +164,7 @@ const Login = ({navigation}) => {
                         <Text style={{marginRight:20}}>Não possui conta?</Text>
                         <Link href="/LoginAs" onPress={() => setClickedReg(true)}>
                             <Text
-                                onPress={() => navigation.navigate('login')}
+                                onPress={() => navigation.navigate('register')}
                                 style={
                                     clickedReg ? {color:COLORS.blue, textDecorationLine:'underline'} : {}
                                 }

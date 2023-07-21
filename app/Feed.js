@@ -3,16 +3,31 @@ import { COLORS } from "../constants";
 import { DATA } from "../constants/feedData";
 import { ScrollView } from "react-native";
 import DoubtCard from "../components/DoubtCard";
-import { icon,icon2,icon3, PostDbt } from "../constants/icons";
+import { icon,icon2,icon3, PostDbt,back } from "../constants/icons";
 import Icon from "../components/common/footer/FooterIcon/FooterIcon";
 import { useRouter } from "expo-router";
 import Footer from "../components/common/footer/footerComponent/Footer";
 
-function Feed(){
+function Feed({navigation}){
     const router = useRouter();
 
     return(
         <SafeAreaView style={{backgroundColor:COLORS.white,}}>
+            <Stack.Screen
+                name='Feed'
+                component={Register}
+                options={{
+                    headerStyle: { backgroundColor: COLORS.white },
+                    headerShadowVisible: false,
+                    headerLeft: () => (
+                        <HeaderBtn iconUrl={back} dimension="60%"/>
+                    ),
+                    headerTitle: "Feed",
+                    headerTitleAlign: "center",
+                    headerTintColor: COLORS.blue
+                }}
+            /> 
+            
             <ScrollView>
                 <View>
                     <FlatList
@@ -41,7 +56,7 @@ function Feed(){
                 right:30,
                 bottom:70
                     }}>
-                    <Icon source={PostDbt} dimension={60} handleclick={()=>router.push("/PostDoubt")}/>
+                    <Icon source={PostDbt} dimension={60} handleclick={()=>navigation.navigate("PostDoubt")}/>
             </View>
             <View>
                 <Footer/>

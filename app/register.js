@@ -83,7 +83,8 @@ const Register = ({navigation}) => {
         }
 
         if (valid) {
-            register();
+            //register();
+            navigation.navigate("Login");
         }
     }
 

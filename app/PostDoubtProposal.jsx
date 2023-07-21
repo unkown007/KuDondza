@@ -13,7 +13,7 @@ import TextArea from "../components/textArea/TextArea";
 import { useEffect } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function PostDoubtProposal(){
+const PostDoubtProposal=({navigation})=>{
     const router = useRouter();
     const [prop, setProp] = useState(100);
     const [skill, setSkills] = useState("");
@@ -69,7 +69,7 @@ function PostDoubtProposal(){
                                 paddingRight:25
                                 }}>
                                   <Button title={"Postar"} w={100} h={25} fontSize={15}
-                                    // onPress={()=>router.push("/PostDoubtProposal")}
+                                    onPress={()=>navigation.navigate("Feed")}
                                   />
                         </View>
                       
